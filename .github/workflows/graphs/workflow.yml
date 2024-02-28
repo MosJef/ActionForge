@@ -1,16 +1,16 @@
 entry: gh-start
 executions:
   - src:
-      node: gh-start
-      port: exec-on-workflow_run
-    dst:
-      node: gh-checkout
-      port: exec
-  - src:
       node: gh-checkout
       port: exec
     dst:
       node: run-v1-raspberry-kiwi-grape
+      port: exec
+  - src:
+      node: gh-start
+      port: exec-on-workflow_dispatch
+    dst:
+      node: gh-checkout
       port: exec
 connections: []
 nodes:
@@ -24,15 +24,15 @@ nodes:
   - id: gh-checkout
     type: github.com/actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
     position:
-      x: 450
-      y: 100
+      x: 410
+      y: 120
     settings:
       folded: false
   - id: run-v1-raspberry-kiwi-grape
     type: run@v1
     position:
-      x: 980
-      y: 190
+      x: 830
+      y: 120
     inputs:
       script: echo "Hello World!"
     settings:
