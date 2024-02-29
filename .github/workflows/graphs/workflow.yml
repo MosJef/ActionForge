@@ -8,12 +8,6 @@ executions:
       port: exec
   - src:
       node: gh-start
-      port: exec-on-workflow_dispatch
-    dst:
-      node: gh-checkout
-      port: exec
-  - src:
-      node: gh-start
       port: exec-on-push
     dst:
       node: gh-checkout
